@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #60a5fa;
+            font-size: 2.5rem;
+        }
+
+        p.subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #94a3b8;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: scale(1.03);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #64748b;
+        }
+
+        .examples {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .examples span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🧠 Math Solver</h1>
+    <p class="subtitle">Solve equations, derivatives, integrals & more instantly</p>
+
+    <!-- FORM -->
+    <form action="/solve" method="POST" enctype="multipart/form-data">
+
+        <!-- TEXT INPUT -->
+        <div class="input-group">
+            <label>Enter Math Problem:</label>
+            <input type="text" name="expression" placeholder="e.g. 2x + 3 = 11 or diff(x^2)">
+        </div>
+
+        <div class="divider">OR</div>
+
+        <!-- IMAGE INPUT -->
+        <div class="input-group">
+            <label>Upload Image:</label>
+            <input type="file" name="image">
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="btn">Solve 🚀</button>
+
+    </form>
+
+    <!-- EXAMPLES -->
+    <div class="examples">
+        <strong>Examples:</strong>
+        <span>⚖️ Equation → 2x + 3 = 11</span>
+        <span>📈 Derivative → diff(x^2 + 3x)</span>
+        <span>∫ Integral → integrate(x^3)</span>
+        <span>🔢 Simplify → (x+1)^2</span>
+    </div>
+
+    <footer>
+        Built with ❤️ using Flask + SymPy
+    </footer>
+
+</div>
+
+</body>
+</html>
