@@ -1,0 +1,175 @@
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ===== TITLE ===== */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #60a5fa;
+    font-size: 2.5rem;
+}
+
+/* ===== SUBTITLE ===== */
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #94a3b8;
+}
+
+/* ===== INPUT GROUP ===== */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* ===== LABEL ===== */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* ===== INPUT FIELDS ===== */
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #1e293b;
+    color: #e2e8f0;
+    transition: 0.3s;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #64748b;
+}
+
+/* Focus effect */
+input:focus {
+    background: #0f172a;
+    box-shadow: 0 0 0 2px #3b82f6;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Click effect */
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #64748b;
+    position: relative;
+}
+
+/* Divider line */
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #334155;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+/* ===== EXAMPLES ===== */
+.examples {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.examples span {
+    display: block;
+    margin: 5px 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
