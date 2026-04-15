@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result - Math Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .result-container {
+            width: 95%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .answer {
+            font-size: 1.6rem;
+            color: #22c55e;
+            margin-top: 10px;
+            word-wrap: break-word;
+        }
+
+        .steps {
+            margin-top: 10px;
+        }
+
+        .step {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #93c5fd;
+        }
+
+        .error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container result-container">
+
+    <!-- HEADER -->
+    <h1>{{ type_icon }} {{ type_label }}</h1>
+    <p class="subtitle">{{ type_description }}</p>
+
+    <!-- ORIGINAL INPUT -->
+    <div class="card">
+        <div class="title">📌 Input</div>
+        <p>{{ original_input }}</p>
+        <small>{{ source_label }}</small>
+    </div>
+
+    <!-- EXPRESSION -->
+    <div class="card">
+        <div class="title">🧮 Interpreted Expression</div>
+        <p>{{ expression }}</p>
+    </div>
+
+    <!-- ANSWER -->
+    <div class="card">
+        <div class="title">✅ Answer</div>
+        <div class="answer">{{ answer }}</div>
+    </div>
+
+    <!-- EXTRA INFO (Simplify only) -->
+    {% if extra_info %}
+    <div class="card">
+        <div class="title">📊 Additional Forms</div>
+        {% if extra_info.expanded %}
+            <p><strong>Expanded:</strong> {{ extra_info.expanded }}</p>
+        {% endif %}
+        {% if extra_info.factored %}
+            <p><strong>Factored:</strong> {{ extra_info.factored }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- STEPS -->
+    {% if has_steps %}
+    <div class="card">
+        <div class="title">🪜 Step-by-Step Solution</div>
+        <div class="steps">
+            {% for step in steps %}
+                <div class="step">
+                    <div class="step-title">{{ step.title }}</div>
+                    <div>{{ step.explanation }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ERROR -->
+    {% if error_message %}
+    <div class="card">
+        <div class="title error">⚠️ Error</div>
+        <p class="error">{{ error_message }}</p>
+    </div>
+    {% endif %}
+
+    <!-- BACK BUTTON -->
+    <a href="/" class="back-btn">⬅️ Solve Another Problem</a>
+
+</div>
+
+</body>
+</html>
